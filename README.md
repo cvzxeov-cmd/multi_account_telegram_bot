@@ -1,4 +1,6 @@
 
+---
+
 # multi_account_telegram_bot
 
 Этот проект позволяет управлять несколькими аккаунтами Telegram с помощью библиотеки Telethon. Скрипт поддерживает отправку сообщений от имени разных аккаунтов и включает режим поддержания онлайна.
@@ -24,8 +26,8 @@
     ```json
     {
         "accounts": [
-            {"api_id": 26940063, "api_hash": "a73324d1790b0a66e67b27eb1d2cb79d", "phone": "+380683407958"},
-            {"api_id": 25272983, "api_hash": "cd744cbf48e0a9240a8e7abffaf6cf33", "phone": "+6282277987358"}
+            {"api_id": "YOUR_API_ID_1", "api_hash": "YOUR_API_HASH_1", "phone": "+12345678901"},
+            {"api_id": "YOUR_API_ID_2", "api_hash": "YOUR_API_HASH_2", "phone": "+10987654321"}
         ]
     }
     ```
@@ -59,9 +61,9 @@
 from telethon import TelegramClient, events, functions
 import asyncio
 import logging
+import json
 
 # Загрузка конфигурации
-import json
 with open('config.json', 'r') as f:
     config = json.load(f)
 
@@ -126,3 +128,7 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
+
+---
+
+Файл `config.json` содержит примеры данных, которые нужно заменить на ваши реальные API-данные и номера телефонов.
