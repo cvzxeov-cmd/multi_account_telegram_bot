@@ -1,11 +1,62 @@
+
 # multi_account_telegram_bot
+
 Этот проект позволяет управлять несколькими аккаунтами Telegram с помощью библиотеки Telethon. Скрипт поддерживает отправку сообщений от имени разных аккаунтов и включает режим поддержания онлайна.
-УстановкаКлонируйте репозиторий:git clone https://github.com/<ваш_пользователь>/multi_account_telegram_bot.gitПерейдите в директорию проекта:cd multi_account_telegram_botУстановите необходимые зависимости:pip install telethonСоздайте файл config.json и добавьте в него свои API-данные и номера телефонов:{
-    "accounts": [
-        {"api_id": 26940063, "api_hash": "a73324d1790b0a66e67b27eb1d2cb79d", "phone": "+380683407958"},
-        {"api_id": 25272983, "api_hash": "cd744cbf48e0a9240a8e7abffaf6cf33", "phone": "+6282277987358"}
-    ]
-}Запустите скрипт:python bot.pyИспользованиеРежим поддержания онлайна:Отправьте команду /stay_online, чтобы включить режим постоянного онлайн.Отправьте команду /stop_online, чтобы отключить режим онлайн.Отправка сообщений:Используйте команду /send <recipient> <message>, чтобы отправить сообщение от имени одного из ваших аккаунтов.Пример:/send @username Привет!ЛогированиеВсе входящие сообщения и действия будут записываться в файл telegram.log.Пример кодаfrom telethon import TelegramClient, events, functions
+
+## Установка
+
+1. Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/<ваш_пользователь>/multi_account_telegram_bot.git
+    ```
+
+2. Перейдите в директорию проекта:
+    ```bash
+    cd multi_account_telegram_bot
+    ```
+
+3. Установите необходимые зависимости:
+    ```bash
+    pip install telethon
+    ```
+
+4. Создайте файл `config.json` и добавьте в него свои API-данные и номера телефонов:
+    ```json
+    {
+        "accounts": [
+            {"api_id": 26940063, "api_hash": "a73324d1790b0a66e67b27eb1d2cb79d", "phone": "+380683407958"},
+            {"api_id": 25272983, "api_hash": "cd744cbf48e0a9240a8e7abffaf6cf33", "phone": "+6282277987358"}
+        ]
+    }
+    ```
+
+5. Запустите скрипт:
+    ```bash
+    python bot.py
+    ```
+
+## Использование
+
+### Режим поддержания онлайна:
+- Отправьте команду `/stay_online`, чтобы включить режим постоянного онлайн.
+- Отправьте команду `/stop_online`, чтобы отключить режим онлайн.
+
+### Отправка сообщений:
+- Используйте команду `/send <recipient> <message>`, чтобы отправить сообщение от имени одного из ваших аккаунтов.
+
+Пример:
+```
+/send @username Привет!
+```
+
+## Логирование
+
+Все входящие сообщения и действия будут записываться в файл `telegram.log`.
+
+## Пример кода
+
+```python
+from telethon import TelegramClient, events, functions
 import asyncio
 import logging
 
@@ -18,7 +69,7 @@ accounts = config['accounts']
 clients = []
 
 # Настройка логирования
-```logging.basicConfig(filename='telegram.log', level=logging.INFO)
+logging.basicConfig(filename='telegram.log', level=logging.INFO)
 
 # Флаг для поддержания онлайна
 keep_alive = False
@@ -73,4 +124,5 @@ async def main():
     )
 
 if __name__ == '__main__':
-    asyncio.run(main())ЛицензияЭтот проект распространяется под лицензией MIT. Смотрите файл LICENSE для подробностей.```
+    asyncio.run(main())
+```
