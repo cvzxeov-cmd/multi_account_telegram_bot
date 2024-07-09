@@ -1,0 +1,6 @@
+{
+    "accounts": [
+        {"api_id": "YOUR_API_ID_1", "api_hash": "YOUR_API_HASH_1", "phone": "+12345678901"},
+        {"api_id": "YOUR_API_ID_2", "api_hash": "YOUR_API_HASH_2", "phone": "+10987654321"}
+    ]
+}
